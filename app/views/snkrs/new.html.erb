@@ -1,0 +1,29 @@
+<h3>スニーカー投稿</h3>
+<%= form_for @snkrs do |f| %>
+  <div class="field">
+    <%= f.label :スニーカー名 %>
+    <%= f.text_field :name, :size => 140 %>
+  </div>
+  <div class="field">
+    <%= f.label :点数（100点満点中） %>
+    <%= f.text_field :score, :size => 140 %>
+  </div>
+  <div class="field">
+    <%= f.label :購入先 %>
+    <%= f.text_field :retailer, :size => 140 %>
+  </div>
+  <div class="field">
+    <%= f.label :使用度（10段階） %>
+    <%= f.text_field :usage, :size => 140 %>
+  </div>
+  <div class="field">
+    <%= f.label :サイズ %>
+    <%= f.number_field :size, step: "0.5", :size => 140 %>
+  </div>
+  <div class="field">
+    <%= f.label :写真 %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit "投稿する" %>
+<% end %>
+<%= link_to "スニーカー、一覧に戻る", snkrs_path %>

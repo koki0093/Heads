@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "user_show", :media => "all" %>
+<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+<h2><%= @user.name %>さん<h2>
+<h2>投稿したスニーカー</h2>
+<div class="snkrs-container">
+    <% @userSnkr.each do |t| %>
+        <div class="snkrs">
+            <div class="snkr-image">
+                <%= image_tag t.image_url, size: "250x200" if t.image? %>
+            </div>
+            <%= t.user.name %>
+            <br>
+            <%= t.name %>
+            <br>
+            <%= t.size %>
+            <%= t.score %>
+            <%= t.retailer %>
+            <%= t.usage %>
+            <br>
+            <%= link_to "詳細へ", snkr_path(t.id)  %>
+
+        </div>
+    <% end %>
+</div>

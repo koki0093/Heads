@@ -1,0 +1,72 @@
+<h1>DM</h1>
+<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+  <div class="snkr">
+    <div class="snkr-container">
+      <p>出品者名
+      <%= @snkrsUser.name %>
+      </p>
+      <p>出品者スニーカー名
+      <%= @snkrs.name %>
+      </p>
+      <p>
+      <%= image_tag @snkrs.image_url, size: "250x200" %>
+      </p>
+      <p>サイズ
+      <%= @snkrs.size %>
+      </p>
+      <p>点数
+      <%= @snkrs.score %>
+      </p>
+      <p>購入先
+      <%= @snkrs.retailer %>
+      </p>
+      <p>使用度
+      <%= @snkrs.usage %>
+      </p>
+    </div>
+    <div class="snkr-container">
+      <p>オファー投稿者
+      <%= @offerUser.name %>
+      </p>
+      <p>オファースニーカー名
+      <%= @offers.name %>
+      </p>
+      <%= image_tag @offers.image_url, size: "250x200" %>
+      <p>サイズ
+      <%= @offers.size %>
+      </p>
+      <p>点数
+      <%= @offers.score %>
+      </p>
+      <p>購入先
+      <%= @offers.retailer %>
+      </p>
+      <p>使用度
+      <%= @offers.usage %>
+      </p>
+    </div>
+  </div>
+
+<h4>参加者</h4>
+<% @entries.each do |e| %>
+  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%>さん</a></strong></h5>
+<% end %>
+
+<hr>
+<% if @messages.present? %>
+  <% @messages.each do |m| %>
+    <strong><%= m.content %></strong>
+    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
+    <hr>
+  <% end %>
+<% else %>
+  <h3 class="text-center">メッセージはまだありません</h3>
+<% end %>
+
+<%= form_with(model: [@snkrs, @offers, @message], local: true) do |f| %>
+  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+  <%= f.hidden_field :room_id, :value => @room.id %>
+  <br>
+  <%= f.submit "投稿する" %>
+<% end %>
+

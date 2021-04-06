@@ -1,0 +1,47 @@
+<h1>Heads</h1>
+<h3>スニーカー詳細</h3>
+<div class="snkr1111">
+    <p>スニーカー名
+    <%= @snkrs.name %>
+    </p>
+    <%= image_tag @snkrs.image_url, size: "250x200" %>
+    <p>サイズ
+    <%= @snkrs.size %>
+    </p>
+    <p>点数
+    <%= @snkrs.score %>
+    </p>
+    <p>購入先
+    <%= @snkrs.retailer %>
+    </p>
+    <p>使用度
+    <%= @snkrs.usage %>
+    </p>
+    <% if user_signed_in? && current_user.id == @snkrs.user_id %>
+        <%= button_to "削除する", snkr_path(@snkrs.id), method: :delete %>
+    <% end %> 
+     <% if user_signed_in? && current_user.id != @snkrs.user_id %>
+        <%= link_to "オファーする", new_snkr_offer_path(@snkrs.id) %>
+    <% end %> 
+</div>
+
+<% if user_signed_in? %>
+    <% if current_user.already_liked?(@snkrs) %>
+        <%= link_to snkr_like_path(@snkrs), method: :delete do %>
+            <i class="fas fa-heart"></i><%= @snkrs.likes.count %>
+        <% end %>
+    <% else %>
+        <%= link_to snkr_likes_path(@snkrs), method: :post do %>
+            <i class="fas fa-heart"></i><%= @snkrs.likes.count %>
+        <% end %>
+      <% end %>
+<% else %>
+    <i class="fas fa-heart"></i><%= @snkrs.likes.count %>
+<% end %>
+<br>
+<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+<br>
+
+
+
+

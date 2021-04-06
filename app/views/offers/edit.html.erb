@@ -1,0 +1,77 @@
+<%= stylesheet_link_tag "offer_edit", :media => "all" %>
+<h3>オファー詳細</h3>
+<%= link_to "オファー、一覧", snkr_offers_path %>
+<div class="snkr">
+    <div class="snkr-container">
+        <p>出品者名
+        <%= @snkrsUser.name %>
+        </p>
+        <p>出品者スニーカー名
+        <%= @snkrs.name %>
+        </p>
+        <p>
+        <%= image_tag @snkrs.image_url, size: "250x200" %>
+        </p>
+        <p>サイズ
+        <%= @snkrs.size %>
+        </p>
+        <p>点数
+        <%= @snkrs.score %>
+        </p>
+        <p>購入先
+        <%= @snkrs.retailer %>
+        </p>
+        <p>使用度
+        <%= @snkrs.usage %>
+        </p>
+    </div>
+
+    <div class="snkr-container">
+        <p>オファースニーカー名
+        <%= @offers.name %>
+        </p>
+        <%= image_tag @offers.image_url, size: "250x200" %>
+        <p>サイズ
+        <%= @offers.size %>
+        </p>
+        <p>点数
+        <%= @offers.score %>
+        </p>
+        <p>購入先
+        <%= @offers.retailer %>
+        </p>
+        <p>使用度
+        <%= @offers.usage %>
+        </p>
+        <% if @offers.user_id == current_user.id %>
+            <%= button_to "このオファーを削除する", snkr_offer_path(@snkrs.id, @offers.id), method: :delete %>
+        <% end %>
+        <% if @offers.user_id != current_user.id %>
+            <% if @offers.consent == 'はい' %>  
+                <% if @isRoom == true %>
+                <%= link_to "チャットへ", snkr_offer_room_path(@snkrs.id, @offers.id, @roomId)  %>
+                <% else %>
+                    <%= form_with(model: [@snkrs, @offers, @room], local: true) do |g| %>
+                        <%= fields_for @entry do |e| %>
+                            <%= e.hidden_field :user_id, :value=> @offersUser.id %>
+                        <% end %>
+                        <%= g.submit "チャットを始める" %>
+                    <% end %>
+                <% end %>
+                <%= form_with(model: [@snkrs, @offers], local: true) do |f| %>
+                    <p>取り消す際は下の選択肢を（いいえ）にして下さい</p>
+                    <%= f.select :consent, [["はい", "はい"], ["いいえ", "いいえ"]], include_blank: "オファーを承諾する" %>  
+                    <%= f.submit "承諾する" %>
+                <% end %>
+            <% elsif @offers.consent == 'いいえ' %>               
+            <% else %>
+                <%= form_with(model: [@snkrs, @offers], local: true) do |f| %>
+                    <%= f.select :consent, [["はい", "はい"], ["いいえ", "いいえ"]], include_blank: "オファーを承諾する" %>  
+                    <%= f.submit "承諾する" %>
+                <% end %>        
+            <% end %>
+        <% else %>
+        <% end %>
+
+    </div> 
+</div>

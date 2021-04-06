@@ -1,0 +1,81 @@
+<%= stylesheet_link_tag "snkr_index", :media => "all" %>
+<h1>Heads</h1>
+
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<%= link_to "新規投稿へ", new_snkr_path %>
+<%= link_to "オファー、一覧", snkr_offers_path(@snkrs) %>
+<%= link_to "マイページ", user_path(current_user.id) %>
+<%= link_to "いいね一覧", snkr_likes_path(@snkrs) %>
+<%= link_to "DM一覧", snkr_rooms_path(@snkrs) %>
+
+
+
+
+<h3>スニーカーを条件検索</h3>
+<%= form_with(scope: :search, url: snkrs_path, method: :get, local: true) do |f| %>
+  <div class="field">
+    <%= f.label(:name, 'スニーカーを検索') %>
+    <%= f.text_field :name, value: @search_params[:name]  %>
+ 　</div>
+  
+ <div class="field">
+    <%= f.label(:score,'点数範囲') %>
+    <%= f.text_field :score_from, value: @search_params[:score_from] %> ~ <%= f.text_field :score_to, value: @search_params[:score_to] %>
+
+  </div>
+
+ <div class="field">
+    <%= f.label(:size, 'サイズ') %>
+    <%= f.number_field :size, step: "0.5", value: @search_params[:size]  %>
+ </div>
+
+ <div class="field">
+    <%= f.label(:retailer, '購入先') %>
+    <%= f.text_field :retailer, value: @search_params[:retailer]  %>
+ </div>
+
+ <div class="field">
+    <%= f.label(:usage,'使用度範囲(0~10)') %>
+    <%= f.text_field :usage_from, value: @search_params[:usage_from] %> ~ <%= f.text_field :usage_to, value: @search_params[:usage_to] %>
+    <%= f.submit %> 
+ </div>
+ 
+<% end %>
+
+
+
+</br>
+<h2>スニーカー、一覧</h2>
+<div class="snkrs-container">
+  <% @snkrs.each do |t| %>
+    <div class="snkrs">
+      <div class="snkr-image">
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      </div>
+      <%= t.user.name %>
+      <br>
+      <%= t.name %>
+      <br>
+      <%= t.size %>
+      <%= t.score %>
+      <%= t.retailer %>
+      <%= t.usage %>
+      <br>
+      <%= link_to "詳細へ", snkr_path(t.id)  %>
+
+      <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+          <%= link_to snkr_like_path(id: t.id, snkr_id: t.id), method: :delete do %>
+            <i class="fas fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <% else %>
+          <%= link_to snkr_likes_path(id: t.id, snkr_id: t.id), method: :post do %>
+            <i class="fas fa-heart"></i><%= t.likes.count %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <i class="fas fa-heart"></i><%= t.likes.count %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

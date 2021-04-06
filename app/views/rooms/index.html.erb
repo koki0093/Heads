@@ -1,0 +1,15 @@
+<% if current_user.id == @user.id %>
+  <h3>チャット一覧</h3>
+  <% @rooms.each do |r| %>
+    <% r.users.each do |u| %>
+     <% if u.id == current_user.id %>
+     <% else %>
+        <p><a href="/rooms/<%= r.id %>"><%= u.name %>さんとのチャット</a></p>
+     <% end %>
+    <% end %> 
+  <% end %>
+<% else %>
+
+<% end %>
+
+

@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag "offer_index", :media => "all" %>
+<h2>オファー、一覧</h2>
+  <%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+  <h3>自分のオファー</h3>
+  <div class="offers-container">
+      <% @offers1.each do |t| %>  
+        <div class="offers">
+          <div class="offer-image">      
+            <%= image_tag t.image_url, size: "250x200" if t.image? %>      
+          </div>
+          <%= t.user.name %>
+          <br>
+          <%= t.name %>
+          <br>
+          <%= t.size %>
+          <%= t.score %>
+          <%= t.retailer %>
+          <%= t.usage %>
+          <br>
+          <%= link_to "詳細へ", edit_snkr_offer_path(t.snkr_id, t.id)  %>
+            
+        </div>
+      <% end %>
+    </div>
+
+  <h3>相手からのオファー</h3>
+   <div class="offers-container">
+      <% @offers2.each do |t| %>  
+        <% if t.consent != 'いいえ' %>
+          <div class="offers">
+            <div class="offer-image">      
+              <%= image_tag t.image_url, size: "250x200" if t.image? %>      
+            </div>
+            <%= t.user.name %>
+            <br>
+            <%= t.name %>
+            <br>
+            <%= t.size %>
+            <%= t.score %>
+            <%= t.retailer %>
+            <%= t.usage %>
+            <br>
+            <%= link_to "詳細へ", edit_snkr_offer_path(t.snkr_id, t.id)  %>              
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+

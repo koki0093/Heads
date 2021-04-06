@@ -1,0 +1,16 @@
+.likes-container{
+    display:flex;
+    // justify-content: space-around;
+    
+    
+    flex-wrap: wrap;
+
+}
+
+.likes{
+    margin: 10px;  
+}
+
+.like-image{
+    padding-top: 10px;
+}

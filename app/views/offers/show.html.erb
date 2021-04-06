@@ -1,0 +1,23 @@
+<h3>オファー詳細</h3>
+<div class="snkr">
+  <p>出品者名
+  <%= @snkrs.user_id %>
+  </p>
+  <p>スニーカー名
+  <%= @offers.name %>
+  </p>
+  <%= image_tag @offers.image_url, size: "250x200" %>
+  <p>サイズ
+  <%= @offers.size %>
+  </p>
+  <p>点数
+  <%= @offers.score %>
+  </p>
+  <p>購入先
+  <%= @offers.retailer %>
+  </p>
+  <p>使用度
+  <%= @offers.usage %>
+  </p>
+  
+</div>
