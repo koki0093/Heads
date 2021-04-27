@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   
   resources :snkrs do
     resources :likes, only: [:create, :destroy, :index]
-    resources :rooms, :only => [:index]
     resources :offers do
       resources :messages, :only => [:create]
       resources :rooms, :only => [:create, :show]
@@ -17,11 +16,11 @@ Rails.application.routes.draw do
   end
 
   
- 
+  resources :rooms, :only => [:index]
 
   resources :users, only: :show
 
-  
+  resources :notifications, only: :index
   
   
 end

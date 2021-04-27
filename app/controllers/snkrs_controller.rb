@@ -4,16 +4,28 @@ class SnkrsController < ApplicationController
         def index
           @search_params = snkrs_search_params
           @snkrs = Snkr.search(@search_params)
+          @snkr_image = Image.all
+          
+          
+
           
         end
+
         def new
             @snkrs = Snkr.new
+            @snkrs.images.build
         end
+
         def create
-            snkr = Snkr.new(snkrs_params)
-            snkr.user_id = current_user.id
-            if snkr.save
-                redirect_to :action => "index"
+            @snkr = Snkr.new(snkrs_params)
+            @snkr.user_id = current_user.id
+            if @snkr.save
+              if params[:images].present?
+                params[:images]['image'].each do |img|
+                  @images = @snkr.images.create(:image => img, :snkr_id => @snkr.id)
+                end
+              end
+              redirect_to :action => "index"
             else
               redirect_to :action => "new"
             end
@@ -32,7 +44,7 @@ class SnkrsController < ApplicationController
 
       private
         def snkrs_params
-          params.require(:snkr).permit(:name, :score, :retailer, :usage, :size, :image)
+          params.require(:snkr).permit(:name, images_attributes: [:image])
         end
 
       private

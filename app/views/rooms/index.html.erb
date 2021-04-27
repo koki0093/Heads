@@ -4,12 +4,12 @@
     <% r.users.each do |u| %>
      <% if u.id == current_user.id %>
      <% else %>
-        <p><a href="/rooms/<%= r.id %>"><%= u.name %>さんとのチャット</a></p>
+        <p><%= link_to "#{u.name}さんとのチャット", snkr_offer_room_path(r.snkr_id, r.offer_id, r.id)  %></p>
+        
+       
      <% end %>
     <% end %> 
   <% end %>
 <% else %>
 
 <% end %>
-
-

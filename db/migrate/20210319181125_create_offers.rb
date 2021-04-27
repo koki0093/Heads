@@ -7,9 +7,9 @@ class CreateOffers < ActiveRecord::Migration[6.1]
       t.string :retailer
       t.integer :usage
       t.float :size
-      t.string :image
       t.integer :snkr_id
       t.string :consent
+
 
       t.timestamps
     end

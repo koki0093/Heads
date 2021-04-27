@@ -69,3 +69,5 @@ gem 'dotenv-rails'
 
 gem 'hirb'
 gem 'hirb-unicode'
+
+gem 'kaminari'

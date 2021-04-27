@@ -61,23 +61,17 @@ class OffersController < ApplicationController
     end
 
     def update
-        @offers = Offer.find(params[:id])
         @snkrs = Snkr.find(params[:snkr_id])
-        offer = Offer.find(params[:id])
-        if offer.update(offers_params)
+        @offers = Offer.find(params[:id])
+        if @offers.update(offers_params)
+            @offers.create_notification_by(current_user)
             if @offers.consent == 'はい'
-                flash.now[:alert] = 'はい'
-                redirect_to :action => "edit", :snkr_id => @snkrs.id, :id => offer.id
-            elsif @offers.consent == 'いいえ'
-                flash[:success] = "コメントできませんでした"
-                redirect_back(fallback_location: root_path)
-                # redirect_to "snkr_offers", :snkr_id => @snkrs.id
-            else
-                redirect_to "snkrs_path"
+                redirect_to :action => "edit", :snkr_id => @snkrs.id, :id => @offers.id
+            else @offers.consent == 'いいえ'
+                redirect_to :action => "index", :snkr_id => @snkrs.id
             end
         else
-            # redirect_to :action => "edit", :snkr_id => @snkrs.id, :id => offer.id
-            redirect_back(fallback_location: root_path)
+            redirect_to :action => "edit", :snkr_id => @snkrs.id, :id => @offers.id
         end
     end
 
