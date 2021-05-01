@@ -1,12 +1,8 @@
 <%= stylesheet_link_tag "snkr_index", :media => "all" %>
-<h1>Heads</h1>
+
 
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= link_to "新規投稿へ", new_snkr_path %>
-<%= link_to "オファー、一覧", snkr_offers_path(@snkrs) %>
-<%= link_to "マイページ", user_path(current_user.id) %>
-<%= link_to "いいね一覧", snkr_likes_path(@snkrs) %>
-<%= link_to "DM一覧", snkr_rooms_path(@snkrs) %>
+<%= link_to "通知一覧", notifications_path %>
 
 
 

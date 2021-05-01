@@ -1,3 +1,7 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
 <h3>スニーカー投稿</h3>
 <%= form_for @snkrs do |f| %>
   <div class="field">
@@ -22,8 +26,21 @@
   </div>
   <div class="field">
     <%= f.label :写真 %>
-    <%= f.file_field :image %>
+    ​
+    <div class="image_preview_box">
+          <div class="imagePreview"></div>
+          <div class="input-group">
+            <label class="input-group-btn">
+                <span class="btn btn-primary">
+                  <%= f.label :image %>
+                  <%= f.file_field :image , class: "uploadFile" %>          
+                </span>
+            </label>
+          </div>
+        </div> 
   </div>
   <%= f.submit "投稿する" %>
+
+  
 <% end %>
 <%= link_to "スニーカー、一覧に戻る", snkrs_path %>

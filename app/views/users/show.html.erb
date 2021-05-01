@@ -1,6 +1,13 @@
 <%= stylesheet_link_tag "user_show", :media => "all" %>
 <%= link_to "スニーカー、一覧に戻る", snkrs_path %>
-<h2><%= @user.name %>さん<h2>
+<p>名前 : <%= @user.name %></p>
+<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
 <h2>投稿したスニーカー</h2>
 <div class="snkrs-container">
     <% @userSnkr.each do |t| %>

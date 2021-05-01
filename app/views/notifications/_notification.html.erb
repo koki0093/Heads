@@ -1,0 +1,32 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div class = col-md-6.mx-auto >
+    <div class = form-inline >
+        <h3>
+        <%= visitor.name %>
+        <%= 'さんが' %>
+        </h3>
+
+        <% case notification.action %>
+        <% when 'like' then %>
+            <%= link_to 'あなたの投稿', notification.snkr, style: "font-weight: bold;" %>
+            <%= "にいいねしました" %>
+        <% when 'update' then %>
+            <% if notification.offer.consent == 'はい' %>
+                <%= link_to 'あなたのオファー', edit_snkr_offer_path(notification.snkr_id,notification.offer_id), style: "font-weight: bold;" %>
+                <%= "承諾されました" %>
+                <%= link_to 'DM一覧へ', rooms_path, style: "font-weight: bold;" %>
+           
+            <% elsif notification.offer.consent == 'いいえ' %>
+                <%= link_to 'あなたのオファー', edit_snkr_offer_path(notification.snkr_id,notification.offer_id), style: "font-weight: bold;" %>
+                <%= "キャンセルされました" %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+      
+
+<div class = small.text-muted.text-right >
+    <%= time_ago_in_words(notification.created_at).upcase %>
+  <hr>
+</div>

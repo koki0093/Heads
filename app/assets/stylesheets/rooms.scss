@@ -1,3 +1,28 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.main_container{
+    width: 800px;
+    margin: 0 auto;
+
+}
+
+.right_message{
+    background-color: rgba(103, 221, 103, 0.4);
+    
+    width: 300px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0 15px auto;
+}
+
+.left_message{
+    background-color: rgba(103, 221, 103, 0.4);
+    margin: 15px;
+    
+    width: 300px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+}

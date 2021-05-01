@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_115010) do
+ActiveRecord::Schema.define(version: 2021_04_19_083910) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(version: 2021_03_31_115010) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "snkr_id"
+    t.integer "message_id"
+    t.integer "offer_id"
+    t.integer "room_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"massage_id\"", name: "index_notifications_on_massage_id"
+    t.index ["snkr_id"], name: "index_notifications_on_snkr_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -76,6 +93,8 @@ ActiveRecord::Schema.define(version: 2021_03_31_115010) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.text "profile"
+    t.string "image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

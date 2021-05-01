@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Heads</title>
+    
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>Heads <span>snkr交換サイト</span></li>
+      <li><a href="/snkrs" target="_blank">スニーカー、一覧</a></li>
+      <li><a href="/snkrs/:snkr_id/likes" target="_blank">いいねしたスニーカー</a></li>
+      <li><a href="/snkrs/:snkr_id/offers" target="_blank">オファー、一覧</a></li>
+      <li><a href="/users/:id" target="_blank">マイページ</a></li>
+      <li><a href="/rooms" target="_blank">DM一覧</a></li>
+      <li><a href="/snkrs/new" target="_blank">スニーカー新規投稿</a></li>
+      <li><a href="/notifications" target="_blank">通知一覧</a></li>
+    </ul>
+  </div>
+  <div id='center' class="main center">
+      
+
+  </div>
   </head>
+
 
   <body>
     <%= yield %>
