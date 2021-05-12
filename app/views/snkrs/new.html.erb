@@ -26,16 +26,16 @@
           <div class="ofer_new_item">
             <h4>name.</h4>
             <h4>score.</h4>
-            <h4>size.</h4>
             <h4>retailer.</h4>
             <h4>usage.</h4>
+            <h4>size.</h4>
           </div>
           <div class="ofer_new_item2">
             <p><%= f.text_field :name, placeholder:"商品名（必須 20文字まで)",class: "form__group__name", :size => "40%*40%" %></p>
             <p><%= f.text_field :score, placeholder:"点数（必須 0〜100[数字で入力])", :size => "40%*40%"  %></p>
-            <p><%= f.text_field :retailer, placeholder:"サイズ（必須 数字で入力)", :size => "40%*40%"  %></p>
-            <p><%= f.text_field :usage, placeholder:"購入先（必須 20文字まで)", :size => "40%*40%"  %></p>
-            <p><%= f.number_field :size, step: "0.5", placeholder:"（0〜10[数字で入力])", :size => "40%*80%"  %></p>
+            <p><%= f.text_field :retailer, placeholder:"購入先（必須 20文字まで)", :size => "40%*40%"  %></p>
+            <p><%= f.text_field :usage, placeholder:"使用度（0〜10 数字で入力)", :size => "40%*40%"  %></p>
+            <p><%= f.number_field :size, step: "0.5", placeholder:"サイズ (数字で入力)", :size => "40%*80%"  %></p>
           </div>
         </div>
         <div class ="snkr_new_field_btn">

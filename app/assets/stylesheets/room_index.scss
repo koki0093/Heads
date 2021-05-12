@@ -1,0 +1,33 @@
+.dm_container{
+    width: 50%;
+    background-color: rgb(158, 158, 158);
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-bottom: 2px;
+    
+}
+.dm_contentu{
+    display: flex;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(141, 141, 141);
+}
+.dm_contentu a{
+    font-family: 'Varela Round', sans-serif;
+    font-size:16px;
+    color: white;
+    padding-left: 10px;
+    text-decoration: none;
+}
+.dm_contentu a:hover{
+    color: rgb(0, 0, 0);
+
+}
+.dm_contentu p{
+    padding-top: 10px;
+}
+.dm_contentu img{
+    border-radius: 50%;
+    border: 1px solid rgb(83, 83, 83);
+}

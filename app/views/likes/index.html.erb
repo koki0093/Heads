@@ -10,7 +10,9 @@
               <% current_user.liked_snkrs.each do |t| %>
                 <div class="snkr_img_wrapper">
                   <div class = "snkr_img_container">
-                    <%= image_tag t.images[0].image.to_s, size: "250x200" if t.images[0].image? %> 
+                  <% if t.images.present? %>
+                    <%= image_tag t.images[0].image.to_s, size: "250x200" %> 
+                  <% end %>
                   </div>
                   <div class = "snkr_img_contents">
                     <div class = "snkr_imag_item">

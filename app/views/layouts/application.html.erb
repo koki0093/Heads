@@ -74,9 +74,9 @@
           <div class="snkr_itiran modal" id="MODAL">
             <div class="ccc">
               <div class="snkr_image_image_item_snkr">
-                <p><%= link_to "スニーカー、一覧", snkrs_path, data: {"turbolinks" => false} %></p>
+                <p><%= link_to "スニーカー 一覧", snkrs_path, data: {"turbolinks" => false} %></p>
                 <p><%= link_to "いいね一覧", snkr_likes_path(current_user.liked_snkrs, data: {"turbolinks" => false}) %></p>
-                <p><a href="/snkrs/:snkr_id/offers" target="_blank" >オファー、一覧</a></p>
+                <p><a href="/snkrs/:snkr_id/offers" target="_blank" >オファー 一覧</a></p>
               </div>
             </div>
             <p>スニーカー</p>
@@ -123,9 +123,9 @@
     <% if user_signed_in? %>
       <ul class="sidebarMenuInner">
         <li>Heads <span>snkr交換サイト</span></li>
-        <li><%= link_to "スニーカー、一覧", snkrs_path, data: {"turbolinks" => false} %></li>
+        <li><%= link_to "スニーカー 一覧", snkrs_path, data: {"turbolinks" => false} %></li>
         <li><%= link_to "いいねしたスニーカー", snkr_likes_path(current_user.liked_snkrs), data: {"turbolinks" => false} %></li>
-        <li><a href="/snkrs/:snkr_id/offers" target="_blank">オファー、一覧</a></li>
+        <li><a href="/snkrs/:snkr_id/offers" target="_blank">オファー 一覧</a></li>
         <li><%= link_to "マイページ", user_path(current_user.id), data: {"turbolinks" => false} %></li>
         <li><%= link_to "DM一覧", rooms_path, data: {"turbolinks" => false} %></li>
         <li><%= link_to "スニーカー新規投稿", new_snkr_path, data: {"turbolinks" => false} %></li>

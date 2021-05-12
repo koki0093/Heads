@@ -1,15 +1,26 @@
 <% if current_user.id == @user.id %>
-  <h3>チャット一覧</h3>
-  <% @rooms.each do |r| %>
-    <% r.users.each do |u| %>
-     <% if u.id == current_user.id %>
-     <% else %>
-        <p><%= link_to "#{u.name}さんとのチャット", snkr_offer_room_path(r.snkr_id, r.offer_id, r.id), data: {"turbolinks" => false}  %></p>
-        
-       
-     <% end %>
-    <% end %> 
-  <% end %>
+  <div class= "maimim">
+  <div class="notification_body_main">
+    <div class="notification_body">
+      <div class = "snkr_notification_title">
+        <h3>DM一覧</h3>
+      </div>
+      <div class="dm_container">
+        <% @rooms.each do |r| %>
+            <% r.users.each do |u| %>
+              <% if u.id == current_user.id %>
+              <% else %>
+              <div class="dm_contentu">
+                <%= image_tag u.image_url, size: "50x50" if u.image? %>
+                <p><%= link_to "#{u.name}さんとのチャット", snkr_offer_room_path(r.snkr_id, r.offer_id, r.id), data: {"turbolinks" => false}  %></p>
+              </div>
+            <% end %>
+            <% end %> 
+        <% end %> 
+      </div>
+    </div>
+  </div>
+<div>
 <% else %>
 
 <% end %>
