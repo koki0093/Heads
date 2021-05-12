@@ -1,44 +1,28 @@
-h2>Sign up</h2>
+<%= stylesheet_link_tag "user.new", :media => "all" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<div class="user_sinup_body">
+  <div class ="user_sinup_wrapper">
+    <div class = "user_sinup_container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h1>Sinup</h1>
+        <label>
+          <div class="post_preview7" id="POST_PREVIEW7"><i class="fas fa-camera fa-3x user_post_item"></i></div>
+          <%= f.file_field :image , class: 'new_text img_post', id:"post_pre" %>
+          <span class="post_edit"></span>
+        </label>
+        <%= f.text_field :name, placeholder:"name", autofocus: true, autocomplete: "name" %>
+        <%= f.email_field :email, placeholder:"email", autofocus: true, autocomplete: "email" %>
+        <%= f.text_area :profile, placeholder:"profile 40文字まで", autofocus: true %>
+        <%= f.password_field :password, placeholder:"password 6文字以上", autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, placeholder:"password確認", autocomplete: "new-password" %>
+        <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me -%>
+        <% end %>
+        <%= f.submit "Sin up" %>
+        <div class = "yanayatu_item1">
+          <%= link_to "　Log in　", new_user_session_path, data: {"turbolinks" => false} %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :プロフィール %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :写真 %><br />
-    <%= f.file_field :image, autofocus: true %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

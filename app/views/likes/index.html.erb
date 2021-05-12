@@ -1,21 +1,47 @@
 <%= stylesheet_link_tag "like_index", :media => "all" %>
-<h2>いいね一覧</h2>
-<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
-<div class="likes-container">
-<% current_user.liked_snkrs.each do |t| %>
-    <div class="likes">
-        <div class="likes-image">
-            <%= image_tag t.image_url, size: "250x200" if t.image? %>
+<div class ="like_body">
+  <div class="likes_block">
+    <div class="likes-wrapper">
+        <div class = "snkr_like_title">
+          <h1>Like</h1>
         </div>
-        <%= t.user.name %>
-        <br>
-        <%= t.name %>
-        <br>
-        <%= t.size %>
-        <%= t.score %>
-        <%= t.retailer %>
-        <%= t.usage %>
-        <br>
-        <%= link_to "詳細へ", snkr_path(t.id)  %>
+        <div class="snkr_index_contents">
+            <div class="snkrs_main">
+              <% current_user.liked_snkrs.each do |t| %>
+                <div class="snkr_img_wrapper">
+                  <div class = "snkr_img_container">
+                    <%= image_tag t.images[0].image.to_s, size: "250x200" if t.images[0].image? %> 
+                  </div>
+                  <div class = "snkr_img_contents">
+                    <div class = "snkr_imag_item">
+                      <p>Name：
+                      <%= t.name %>
+                      </p>
+                      <p>Size：
+                      <%= t.size %>
+                      </p>
+                      <%= link_to "詳細へ", snkr_path(t.id), data: {"turbolinks" => false}, class:"show_btn"  %>
+                      <% if user_signed_in? %>
+                        <% if current_user.already_liked?(t) %>
+                          <%= link_to snkr_like_path(id: t.id, snkr_id: t.id), method: :delete, data: {"turbolinks" => false} do %>
+                            <i class="fas fa-heart"></i><%= t.likes.count %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to snkr_likes_path(id: t.id, snkr_id: t.id), method: :post, data: {"turbolinks" => false} do %>
+                            <i class="fas fa-heart"></i><%= t.likes.count %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <i class="fas fa-heart"></i><%= t.likes.count %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        
     </div>
-<% end %>
+ 
+  </div>
+</div>

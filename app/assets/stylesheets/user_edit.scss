@@ -1,0 +1,163 @@
+.user_edit_body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(202, 202, 202);
+    width: 100%;
+    position: relative;
+    z-index: -1;
+
+}
+.user_edit_wrapper{
+    width: 100%;
+    height: 1100px;
+    background-image: url("../images/ブレッドメイン.png");
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+    background-position: center;
+
+
+}
+.user_edit_wrapper::before{
+    content:"";
+    position: absolute;
+    z-index:1;
+    width: 100%;
+   
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+.user_edit_container{
+    z-index: 10;
+    width:600px;
+    height: 940px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding-top: 25px;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 6px 6px 50px rgb(255, 254, 254);
+    
+    p{
+        font-family: 'Kosugi Maru', sans-serif;
+        text-shadow: 2px 3px 3px #000;
+        color:rgb(255, 255, 255);
+        
+    }
+    
+
+    input[type ="email"],input[type = "password"],input[type = "text"]{
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 15px;
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #b10e0e;
+        padding: 5px 10px;
+        width: 180px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+    input[type ="email"]:focus,input[type = "password"]:focus,input[type = "text"]:focus{
+        width: 250px;
+        background-color: #c7caca;
+    }
+    input[type ="submit"]{
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 15px;
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #b10e0e;
+        padding: 3px 20px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+
+    }
+    input[type ="submit"]:hover{
+        background:  #c7caca;
+
+    }
+
+    textarea {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 15px;
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #b10e0e;
+        padding: 30px 10px;
+        width: 180px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+    textarea:focus{
+        width: 250px;
+        background-color: #c7caca;
+    }
+    
+
+}
+
+.user_edit_container h1{
+    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.yanayatu_item3{
+    width: 22%;
+    text-align: center;
+    background: none;
+    display: block;
+    border: 2px solid #0004ff;
+    margin: 10px auto;
+    padding: 3px 20px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.yanayatu_item3 a{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+.yanayatu_item3:hover{
+    background:  #c7caca;
+}
+
+.post_preview7 img{
+    border-radius: 50%;
+    border:1px solid rgb(87, 87, 87);
+    cursor: pointer;
+}
+.post_preview7 :hover{
+    background-color: rgb(29, 29, 29);
+    transition:all ease .3s;
+    color:rgb(255, 255, 255);
+}

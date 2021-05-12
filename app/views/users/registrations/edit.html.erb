@@ -1,65 +1,38 @@
-<h2>編集 <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<div class="user_edit_body">
+  <div class ="user_edit_wrapper">
+    <div class = "user_edit_container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <h1>User.edit</h1>
+        <label>
+        <div class="icon_container">
+          <div class="post_preview7" id="POST_PREVIEW7"><i class="fas fa-camera fa-3x user_post_item"></i>
+            <% if @user.image.present? %>
+              <%= image_tag @user.image_url,class: "user_image edit_image",id:"icon_preview", size: "200x200" if @user.image? %></br>
+            <% else %>
+              <%= image_tag '/icon.jpg',class: "user_image edit_image",id:"icon_preview", size: "200x200" %></br>
+            <% end %>
+          </div>
+          <%= f.file_field :image , class: 'new_text img_post', id:"post_pre" %>
+          <span class="post_edit"></span>
+          </div>
+        </label>
+        
+        <%= f.text_field :name, placeholder:"name", autofocus: true, autocomplete: "name" %>
+        <%= f.email_field :email, placeholder:"email", autofocus: true, autocomplete: "email" %>
+        <%= f.text_area :profile, placeholder:"profile 40文字まで", autofocus: true %>
+        <%= f.password_field :password, placeholder:"password", autocomplete: "new-password" %>
+        <p>passwordを変更しない場合は、空のままでOK!</p>
+        <%= f.password_field :password_confirmation,  placeholder:"新しいpassword",autocomplete: "新しいパスワード" %>
+        <%= f.password_field :current_password, placeholder:"現在のpassword", autocomplete: "new-password" %>
+        <p>更新するためには現在のパスワードが必要です。</p>
+        <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me -%>
+        <% end %>
+        <%= f.submit "Update" %>
+        <div class = "yanayatu_item3">
+          <%= link_to "マイページに戻る", :back, data: {"turbolinks" => false} %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="circle-avatar">
-      <img id="image_img_prev" src="#" class='hidden' />  
-    <% if current_user.persisted? && current_user.image? %>
-      <%= image_tag current_user.image.to_s, class: 'image_present_img' %>  
-      <label><%= f.check_box :remove_image %> 画像を削除</label>
-    <% else %>
-      <%= image_tag 'no_image.png', class: 'image_present_img' %>  
-      <%= f.hidden_field :image_cache %>
-    <% end %>
-      <%= f.file_field :image, id: 'post_img' %>   
-  </div>
-
-  <div class="field">
-    <%= f.label :プロフィール %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

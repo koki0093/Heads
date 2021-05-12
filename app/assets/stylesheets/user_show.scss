@@ -1,16 +1,67 @@
-.snkrs-container{
-    display:flex;
-    // justify-content: space-around;
+.user_show_box{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(175, 175, 175);
     
+    position: relative;
+    z-index: -1;
+  
+}
+.user_show_container{
+    padding: 30px 0;
+    width: 25%;
+    margin: 40px auto;
+    text-align: center;
+    background-color: rgb(124, 124, 124);
+    box-shadow: 2px 2px 4px rgb(37, 37, 37);
+    border-radius: 10px;
+}
+.user_show_container img{
+    border-radius: 50%;
+    border: 3px solid rgb(88, 88, 88);
     
-    flex-wrap: wrap;
 
 }
+.snkr_user_main_title{
+    margin: 0 auto;
+    width: 30%;
 
-.snkrs{
-    margin: 10px;  
-}
-
-.snkr-image{
     padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    // border-bottom:5px solid rgb(0, 0, 0);
+    font-size: 20px; 
+    text-align: center;
+    border-bottom: 2px solid rgb(134, 134, 134);
+}
+.user_show_container p{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-shadow:2px 2px 2px rgb(119, 119, 119);
+    margin: 10px;
+}
+.snkr_user_main_title h1{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
+    color: rgb(194, 193, 193);
+    text-shadow:2px 2px 2px rgb(119, 119, 119);
+}
+.snkr_user_title{
+    margin: 0 auto;
+    width: 30%;
+
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    // border-bottom:5px solid rgb(0, 0, 0);
+    font-size: 20px; 
+    text-align: center;
+    border-bottom: 2px solid rgb(134, 134, 134);
+}
+.snkr_user_title h2{
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 30px;
+    color: rgb(194, 193, 193);
+    text-shadow:2px 2px 2px rgb(119, 119, 119);
 }

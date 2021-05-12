@@ -1,29 +1,46 @@
-<h3>オファー投稿</h3>
-<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
-<%= form_with(model: [@snkrs, @offers], local: true) do |f| %>
-    <div class="field">
-      <%= f.label :スニーカー名 %>
-      <%= f.text_field :name, :size => 140 %>
+<%= stylesheet_link_tag "offer_new", :media => "all" %>
+<div class="snkr_new_wrapper">
+  <div class="snkr_new_container">
+    <div class = "snkr_new_title">
+    <h1>Offer.Post</h1>  
     </div>
-    <div class="field">
-      <%= f.label :点数（100点満点中） %>
-      <%= f.text_field :score, :size => 140 %>
+      <%= form_with(model: [@snkrs, @offers], local: true) do |f| %>
+        <ul>
+          <div class="post_wrapper">
+            <label class="lab_flex">
+              <div class="post_container" id="POST_CONTAINER">
+                <%= f.fields_for :images do |i| %>
+                  <%= i.file_field :image, multiple: true, name: "images[image][]", id:"post_pre", style:"display:none;" %>
+                <% end %>
+                <i class="fas fa-camera fa-3x snkr_post_item"></i>
+              </div>
+            </label>
+          </div>
+        </ul>
+        <div class = "snkr_new_items">
+        <div class = "snkr_new_items_sabu">
+          <div class="snkr_offer">
+            <div class="ofer_new_item">
+              <h4>name.</h4>
+              <h4>score.</h4>
+              <h4>size.</h4>
+              <h4>retailer.</h4>
+              <h4>usage.</h4>
+            </div>
+            <div class="ofer_new_item2">
+              <p><%= f.text_field :name, placeholder:"商品名（必須 20文字まで)",class: "form__group__name", :size => "40%*40%" %></p>
+              <p><%= f.text_field :score, placeholder:"点数（必須 0〜100[数字で入力])", :size => "40%*40%"  %></p>
+              <p><%= f.text_field :retailer, placeholder:"サイズ（必須 数字で入力)", :size => "40%*40%"  %></p>
+              <p><%= f.text_field :usage, placeholder:"購入先（必須 20文字まで)", :size => "40%*40%"  %></p>
+              <p><%= f.number_field :size, step: "0.5", placeholder:"（0〜10[数字で入力])", :size => "40%*80%"  %></p>
+            </div>
+          </div>
+          <div class ="snkr_new_field_btn">
+              <%= f.submit "投稿する" , class: 'serch_btn' %>
+          </div>
+        <% end %>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :購入先 %>
-      <%= f.text_field :retailer, :size => 140 %>
-    </div>
-    <div class="field">
-      <%= f.label :使用度（10段階） %>
-      <%= f.text_field :usage, :size => 140 %>
-    </div>
-    <div class="field">
-      <%= f.label :サイズ %>
-      <%= f.number_field :size, step: "0.5", :size => 140 %>
-    </div>
-    <div class="field">
-      <%= f.label :写真 %>
-      <%= f.file_field :image %>
-    </div>
-    <%= f.submit "投稿する" %>
-<% end %>
+  </div>
+</div>

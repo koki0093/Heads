@@ -1,31 +1,62 @@
 <%= stylesheet_link_tag "user_show", :media => "all" %>
-<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
-<p>名前 : <%= @user.name %></p>
-<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
-<p>プロフィール : <%= @user.profile %></p>
+<div class ="user_show_box">
+  <div class="user_show_wrapper">
+    <div class = "snkr_user_main_title">
+      <h1>My.page</h1>
+    </div>
+    <div class="user_show_container">
+      <%= image_tag @user.image_url, size: "200x200" if @user.image? %>
+      <p>name : <%= @user.name %></p>
+      <p>profile : <%= @user.profile %></p>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
+      <% if current_user.id == @user.id %>
+        <%= link_to "編集する", edit_user_registration_path, class:"show_btn", data: {"turbolinks" => false}%>
+      <% end %>
+    </div>
+  </div>
 
-<h2>投稿したスニーカー</h2>
-<div class="snkrs-container">
-    <% @userSnkr.each do |t| %>
-        <div class="snkrs">
-            <div class="snkr-image">
-                <%= image_tag t.image_url, size: "250x200" if t.image? %>
-            </div>
-            <%= t.user.name %>
-            <br>
-            <%= t.name %>
-            <br>
-            <%= t.size %>
-            <%= t.score %>
-            <%= t.retailer %>
-            <%= t.usage %>
-            <br>
-            <%= link_to "詳細へ", snkr_path(t.id)  %>
 
+
+  <div class="likes_block">
+    <div class="likes-wrapper">
+        <div class = "snkr_user_title">
+          <h2>投稿したスニーカー</h2>
         </div>
-    <% end %>
+        <div class="snkr_index_contents">
+            <div class="snkrs_main">
+              <% @userSnkr.each do |t| %>
+                <div class="snkr_img_wrapper">
+                  <div class = "snkr_img_container">
+                    <%= image_tag t.images[0].image.to_s, size: "250x200" if t.images[0].image? %> 
+                  </div>
+                  <div class = "snkr_img_contents">
+                    <div class = "snkr_imag_item">
+                      <p>Name：
+                      <%= t.name %>
+                      </p>
+                      <p>Size：
+                      <%= t.size %>
+                      </p>
+                      <%= link_to "詳細へ", snkr_path(t.id), data: {"turbolinks" => false},class:"show_btn"  %>
+                      <% if user_signed_in? %>
+                        <% if current_user.already_liked?(t) %>
+                          <%= link_to snkr_like_path(id: t.id, snkr_id: t.id), method: :delete, data: {"turbolinks" => false} do %>
+                            <i class="fas fa-heart"></i><%= t.likes.count %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to snkr_likes_path(id: t.id, snkr_id: t.id), method: :post, data: {"turbolinks" => false} do %>
+                            <i class="fas fa-heart"></i><%= t.likes.count %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <i class="fas fa-heart"></i><%= t.likes.count %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>

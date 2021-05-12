@@ -1,16 +1,81 @@
-.offers-container{
-    display:flex;
-    // justify-content: space-around;
+.offer_body{
+   height: 100%;
+    width: 100%;
+}
+.offer_main{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(172, 169, 169);
     
-    
-    flex-wrap: wrap;
-
 }
 
-.offers{
-    margin: 10px;  
+.offer_main_containe{
+    width: 90%;
+    height: 100%;
+    background-color: rgb(172, 169, 169);
+}
+.ofer_new_item{
+    margin: 10px;
+}
+.offer_index_contents{
+    padding-bottom: 30px;
 }
 
-.offer-image{
+.snkr_offer_title{
+    margin: 0 auto;
+    width: 50%;
     padding-top: 10px;
+    font-size: 10px;
+   
+    // border-bottom:5px solid rgb(0, 0, 0);
+    text-align: center;
+   
 }
+
+.snkr_offer_title h1{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 70px;
+    color: rgb(194, 193, 193);
+    text-shadow:2px 2px 2px rgb(53, 53, 53);
+  }
+  .snkrs_offer_container{
+      width: 90%;
+      margin: 0 auto;
+  }
+.snkr_offer_title_sabu{
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 10px;
+    font-size: 10px;
+   
+    // border-bottom:5px solid rgb(0, 0, 0);
+    text-align: center;
+}
+.snkr_offer_title_sabu h2{
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    text-shadow:2px 2px 2px rgb(143, 142, 142);
+    border-bottom: 2.5px solid rgb(194, 193, 193);
+    margin-bottom: 30px;
+    padding: 20px;
+  }
+
+  .snkr_offer_title_sabu2{
+    margin: 40px auto;
+    width: 50%;
+    padding-top: 10px;
+    font-size: 10px;
+    border-bottom: 2.5px solid rgb(194, 193, 193);
+    // border-bottom:5px solid rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px;
+    
+    
+}
+.snkr_offer_title_sabu2 h2{
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    text-shadow:2px 2px 2px rgb(143, 142, 142);
+  }

@@ -1,2 +1,126 @@
-<%= link_to "ログイン", snkrs_path %>
-<%= link_to "新規登録", new_user_registration_path %>
+<%= stylesheet_link_tag "heads_new", :media => "all" %>
+<div class="top1">
+  <div class="top1_container">
+    <div class="top1_wrapper">
+      <div class="top1_title">
+        <span>headz.</span>
+        <div class="title_float">
+          <h3>スニーカー交換サイト</h3>
+          <%= link_to "ログイン", snkrs_path, data: {"turbolinks" => false} %>
+          <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="second-block">
+    <div class ="second_wrapper">
+      <div class ="second_container">
+        <h2 class = "about_neme">About.</h2>
+        <div class = "second_contents">
+          <h2>こんな経験ありませんか?</h2>
+          <br>
+          <h3>買ったスニーカーが足にあわなかった。</h3>
+          <h3>服の系統が変わって履かなくなった。<h3>
+          <h3>シンプルに足に合わなくなった。<h3>
+          <h2 class="about_t2">スニーカーを見てみる</h2>
+          <i class="fas fa-arrow-down fa-2x about_arrow"></i>
+          <div class="top_botton">
+            <%= link_to "スニーカー、一覧", snkrs_path,class:"btn", data: {"turbolinks" => false} %>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="third-block">
+    <div class ="third_wrapper">
+      <div class = "third_title">
+        <h3 class = "third_title_main">How to.</h3>
+      </div>
+      <div class ="third_container">
+        <div class ="third_contents">
+          <div class = "third_item1">
+            <h3>User1</h3>
+            <h4>スニーカー投稿</h4>
+            <image src="../images/ダンク.jpg" width = "200px" higth = "200px" class="image">
+          </div>
+        </div>
+        <div class ="yajirushi">
+          <i class="far fa-arrow-alt-circle-right fa-3x"></i>
+        </div>
+        <div class ="third_contents2">
+          <div class = "third_item2">
+            <h3>User1</h3>
+            <br>
+            <image src="../images/ダンク.jpg" width = "200px" higth = "200px" class="image">
+            <br>
+          </div>
+          <div class ="yajirushi2">
+          <i class="fas fa-long-arrow-alt-up fa-3x"></i>
+          </div>
+          <div class = "third_item3">
+            <h4>オファー投稿</h4>
+            <image src="../images/AJ1 パープル.jpg" width = "200px" higth = "200px" class="image">
+            <h3>User2</h3>
+          </div>
+        </div>
+        <div class ="yajirushi">
+          <i class="far fa-arrow-alt-circle-right fa-3x"></i>
+        </div>
+        <div class ="third_contents2">
+          <div class = "third_item2">
+            <h3>User1</h3>
+            <br>
+            <image src="../images/ダンク.jpg" width = "200px" higth = "200px" class="image">
+            <h4>オファー承諾</h4>
+          </div>
+          <div class ="yajirushi3">
+            <i class="fas fa-long-arrow-alt-down fa-3x"></i>
+          </div>
+          <div class = "third_item3">
+            <image src="../images/AJ1 パープル.jpg" width = "200px" higth = "200px" class="image"></br>
+            <h3>User2</h3>
+          </div>
+        </div>
+        <div class ="yajirushi">
+          <i class="far fa-arrow-alt-circle-right fa-3x"></i>
+        </div>
+        <div class ="third_contents2">
+          <div class = "third_item2">
+            <h3>User1</h3>
+            <br>
+            <image src="../images/ダンク.jpg" width = "200px" higth = "200px" class="image">
+            <h4>DM</h4>
+          </div>
+          <div class ="yajirushi4">
+            <i class="fas fa-arrows-alt-v fa-3x"></i>
+          </div>
+          <div class = "third_item3">
+            <h4>DM</h4>
+            <image src="../images/AJ1 パープル.jpg" width = "200px" higth = "200px" class="image"></br>
+            <h3>User2</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="fourth-block">
+    <div class ="fourth_wrapper">
+      <div class ="fourth_container">
+        <h2 class = "fourth_neme">Post.</h2>
+        <div class = "fourth_contents">
+          <h3>早速スニーカーを投稿してみる。</h3>
+          <div class="post_botton">
+            <%= link_to "スニーカー投稿", new_snkr_path, data: {"turbolinks" => false} ,class:"btn" %>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+    <p>Headz</p>
+  </footer>
+  </div>
+  

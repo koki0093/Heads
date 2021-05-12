@@ -1,0 +1,428 @@
+
+  .top1{
+    width:100%;
+    height: 75%;
+    background-image: url("../images/ブレッドメイン.png");
+    background-size: cover;
+    position: relative;
+    z-index:-4;
+    background-attachment: fixed;
+    background-position: center;
+    padding-top:100px;
+
+  }
+  .top1::before{
+    content:"";
+    position: absolute;
+    z-index:1;
+    width: 100%;
+    height: 100%;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.65);
+  }
+  .top1_container{
+    width: 60%;
+    height:80%;
+    margin:0 auto;
+    text-align: center;
+  }
+  .top1_wrapper{
+    width: 100%;
+    height:100%;
+    margin:0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+   
+  }
+  .top1_title{
+    color:white;
+    position: relative;
+    z-index: 10;
+    top: 27%;
+  }
+  .top1_title span{
+    font-family: 'Shadows Into Light', cursive;
+    font-size:135px;
+    text-shadow: 3px 3px 4px #000;
+    color:white;
+  }
+  .title_float{
+    position: absolute;
+    left:0;
+    top:90%;
+    
+    width:100%;
+   
+
+  }
+  .title_float h3{
+    font-family: 'Stick', sans-serif;
+    font-size: 25px;
+    text-shadow: 3px 3px 4px #000;
+  }
+
+  .top1_title a{
+    display: inline-block;
+    padding:2px 4px;
+    margin-right:15px;
+    margin-left:15px;
+    margin-top:30px;
+    text-decoration: none;
+    border-radius: 4px;
+    color:rgb(0, 0, 0);
+    background-color: rgb(224, 224, 224);
+  }
+  .top1_title a:hover{
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    transition:all .4s ease;
+  }
+  .first-block {
+   
+    background-size: cover;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 550px;
+    color: white;
+    background-color: aqua;
+    
+  }
+  .aiueo{
+    width:60%;
+    height: 60%;
+    margin:0 auto;
+    padding-top:400px;
+    background-color: red;
+  }
+  .title_container{
+    text-align: center;
+    width:400px;
+    height: 400px;
+    background-color: rgb(9, 255, 0);
+
+  }
+
+  .title_neme{
+    border-bottom: medium, ridge, aqua, ;
+    font-family: 'Shadows Into Light', cursive;
+    font-size:100px;
+    text-shadow: 2px 2px 2px #000;
+    background-color: aqua;
+  }
+
+  .second-block{
+    height: 600px;
+    background-color: #f0f0f0;
+  }
+  .second_wrappe{
+    width: 100%;
+    height: 100%;
+
+  }
+  .second-block {
+    height: 600px;
+    background-color: #f0f0f0;
+  }
+
+  .second_container{
+    text-align: center;
+    height: 80%;
+    width:90%;
+    margin: 0 auto;
+  }
+  .second_contents{
+    margin: 10px 0 50px 0;
+  }
+  .about_arrow{
+    display: inline-block;
+    margin-top:20px;
+    color: #444;
+  }
+  .about_t2{
+    margin-top: 40px;
+    color: #444;
+  }
+  .top_botton{
+    width:18%;
+    font-family: 'Kosugi Maru', sans-serif;
+    background-color: rgb(237, 237, 237);
+    margin:20px auto;
+    font-size:22px;
+    border-radius: 20px;
+    border:1px solid rgb(176, 176, 176);
+    box-shadow: 1px 2px 2px rgb(69, 69, 69);
+    padding:4px 0px;
+    position:relative;
+    z-index:0;
+    color: #444;
+  }
+  .fa-chevron-right{
+    display: inline-block;
+    float:right;
+    margin:0 4px 0px 0px;
+  }
+  
+.top_botton:hover::before{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height: 100%;
+  background-color: rgb(148, 144, 144);
+  border-radius: 20px;
+  animation:botan .4s ease both;
+
+
+}
+.top_botton:hover{
+  color:white;
+}
+.top_botton:hover .btn{
+  color:white;
+}
+
+@keyframes botan {
+  0%{
+    width:0%;
+    transform-origin: left;
+  }
+  100%{
+    width:100%;
+    transform-origin: left;
+  }
+    
+}
+.btn{
+  font-family: 'Kosugi Maru', sans-serif;
+  text-decoration: none;
+  color:rgb(12, 12, 12); 
+}
+.btn:hover{
+  color:rgb(236, 236, 236);
+}
+
+.about_neme{
+    padding: 10px;
+    margin: 0 auto;
+    width: 30%;
+    font-size: 60px;
+    // border-bottom:5px solid rgb(0, 0, 0);
+    font-family: 'Shadows Into Light', cursive;
+    color: #444;
+    text-shadow: 3px 3px 4px rgb(167, 165, 165);
+    text-align: center;
+}
+  
+  .third-block {
+    height: 850px;
+    background-color: #777575;
+  }
+  .third_wrapper{
+    width: 100%;
+    height: 100%;
+  }
+  .third_title{
+    margin: 0 auto;
+    width: 30%;
+    font-size: 65px;
+    padding-top: 20px;
+    // border-bottom:5px solid rgb(0, 0, 0);
+    color: rgb(255, 253, 253);
+    text-shadow: 3px 3px 4px rgb(36, 35, 35);
+    text-align: center;
+  }
+  .third_title_main{
+    font-family: 'Shadows Into Light', cursive;
+
+  }
+  .third_container{
+    display: flex;
+    align-items: center;
+    height: 80%;
+    width:90%;
+    margin: 0 auto;
+    
+  }
+  .third_contents{
+    height: 250px;
+    width: 20%;
+    background-color: rgb(172, 171, 169);
+    box-shadow: 1px 2px 2px rgb(39, 39, 39);
+    border-radius: 10px;
+    
+  }
+  .yajirushi{
+    display: inline-block;
+    height: auto;
+    width: 10%;
+    text-align: center;
+  }
+  .yajirushi2{
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin:45px 0 20px 0;
+  }
+  .yajirushi3{
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin:26px 0 54px 0;
+  }
+  
+  .yajirushi4{
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin:20px 0 20px 0;
+  }
+  .third_item1{
+    width:100%;
+    height:auto;
+    display: inline-block;
+    text-align: center;  
+    color: white;
+  }
+  
+  .third_item2{
+    width:100%;
+    height:auto;
+    display: inline-block;
+    text-align: center;  
+    margin-top:10px;
+    color: white;
+  }
+  .third_item3{
+    width:100%;
+    height:auto;
+    display: inline-block;
+  
+    text-align: center;  
+    color: white;
+  }
+  .third_item3 h4{
+    margin-bottom: 15px;
+  }
+  
+  .image{
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .third_contents2{
+    height: 90%;
+    width: 20%;
+    background-color: rgb(172, 171, 169);
+    box-shadow: 1px 2px 2px rgb(69, 69, 69);
+    border-radius: 10px;
+    
+  }
+
+  .fourth-block{
+    height: 350px;
+    background-color: rgb(255, 255, 255);
+  }
+  .fourth_wrapper{
+    width:100%;
+    height:100%;
+    text-align: center;
+    margin: 0 auto;
+
+  }
+  .fourth_container{
+    width:80%;
+    height:80%;
+    padding-top: 15px;
+    margin: 30px auto;
+    box-shadow: 3px 3px 4px rgb(36, 35, 35);
+
+
+
+  }
+  .fourth_contents{
+    text-align: center;
+    margin: 30px 0;
+
+  }
+  .fourth_contents h3{
+    font-family: 'Kosugi Maru', sans-serif;
+
+  }
+ 
+  .fourth_neme{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
+    padding-top: 10px;
+  }
+  .post_botton{
+    width:18%;
+    display: inline-block;
+    font-family: 'Kosugi Maru', sans-serif;
+    background-color: rgb(194, 194, 194);
+    margin:40px auto;
+    font-size:22px;
+    border-radius: 20px;
+    border:1px solid rgb(176, 176, 176);
+    box-shadow: 1px 2px 2px rgb(69, 69, 69);
+    padding:4px 0px;
+    position:relative;
+    z-index:0;
+    color: #444;
+  }
+  .fa-chevron-right{
+    display: inline-block;
+    float:right;
+    margin:0 4px 0px 0px;
+  }
+  
+.post_botton:hover::before{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height: 100%;
+  background-color: rgb(148, 144, 144);
+  border-radius: 20px;
+
+
+}
+.post_botton:hover{
+  color:white;
+}
+.post_botton:hover .btn{
+  color:white;
+}
+
+
+    
+
+.btn{
+  font-family: 'Kosugi Maru', sans-serif;
+  text-decoration: none;
+  color:rgb(12, 12, 12); 
+}
+.btn:hover{
+  color:rgb(236, 236, 236);
+}
+
+
+  footer{
+    height: 50px;
+    background-color: #000;
+  }
+
+  

@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
     @entry1 = Entry.create(:room_id => @room.id, :user_id => current_user.id)
     @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(:room_id => @room.id))
     
-    redirect_back(fallback_location: root_path)
+    redirect_to :action => "show", :snkr_id => @snkrs.id, :id => @offers.id, :id =>@room.id
   end
 
   def show

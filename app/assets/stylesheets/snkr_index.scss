@@ -1,16 +1,171 @@
-.snkrs-container{
-    display:flex;
-    // justify-content: space-around;
+  .aaaaaaaaa{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(231, 231, 231);
+  }
+  .body{
+      height: 100%;
+      width: 100%;
+  }
+  .snkr_index_wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(231, 231, 231);
     
+  }
+  .snkr_index_container{
+ 
+    height: 100%;
+    width:90%;
+    margin: 0 auto;
     
-    flex-wrap: wrap;
 
+  }
+  .snkr_index_search_container{
+      margin: 30px auto;
+      width: 56%;
+     
+      background-color: rgb(196, 196, 196);
+      border:1px solid rgb(109, 109, 109);
+      box-shadow: 2px 2px 4px rgb(37, 37, 37);
+      border-radius: 10px;
+  }
+  .serch{
+   display: flex;
+   justify-content: center;
 }
-
-.snkrs{
-    margin: 10px;  
+.snkr_serch_title{
+  width: 30%;
+  margin:10px 0 0 50px;
 }
+.snkr_serch_title h2{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 32px;
+  color: rgb(253, 253, 253);
+  text-shadow:2px 2px 2px rgb(77, 77, 77);
+}
+  .serch_btn{
+    text-decoration: none;
+    color: #444;
+    display: inline-block;
+    background-color: rgb(223, 223, 223);
+    padding:2px 10px ;
+    border-radius: 4px;
+    margin-top:10px;
+    border: 1px solid rgb(70, 70, 70);
+    }
+  .serch_btn:hover{
+    background-color: rgb(0, 0, 0);
+    color:rgb(212, 212, 212);
+    transition:all ease .3s;
+    }
+  .field_item{
+      
+        height: 100%;
+        width: 20%;
+        margin-left: 30px;
 
-.snkr-image{
+  }
+  .field_item p{
+      margin-top: 2px;
+      padding-bottom: 10px;
+      font-family: 'Kosugi Maru', sans-serif;
+  }
+  
+  .field_filde{
+    height: 100%;
+    width: 50%;
+
+  }
+  .field_filde_btn{
+    text-align: center;
+    padding-bottom: 5px;
     padding-top: 10px;
-}
+  }
+  .snkr_index_search_container h3{
+      margin: 10px 20px;
+  }
+  .snkr_index_search_contents{
+    margin: 10px 20px;
+  }
+  
+  .snkr_index_title{
+    margin: 0 auto;
+    width: 30%;
+    font-size: 10px;
+    padding-top: 20px;
+    // border-bottom:5px solid rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 20px; 
+    border-bottom: 2px solid rgb(134, 134, 134);
+  }
+  .snkr_index_title h2{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
+    color: rgb(194, 193, 193);
+    text-shadow:2px 2px 2px rgb(122, 122, 122);
+  }
+  .third_title_main{
+    font-family: 'Shadows Into Light', cursive;
+
+  }
+  
+  .snkrs_main{
+    width: 85.2%;
+    margin: 0 auto;
+  }
+  
+  .snkr_img_wrapper{
+      display: inline-block;
+      background-color: rgb(196, 196, 196);
+      border-radius: 10px;
+      margin: 10px;
+      border:1px solid rgb(109, 109, 109);
+      box-shadow: 2px 2px 4px rgb(37, 37, 37);
+      
+  }
+  
+  .snkr_img_container img{
+    border-radius: 10px;
+  }
+
+  
+  .snkr_index_contents{
+    display: flex;
+    width: 100%;
+    background-color: rgb(231, 231, 231);
+
+   
+  }
+  .snkr_imag_item{
+      height: 100%;
+      width: 80%;
+      margin: 0 auto;
+      padding: 2px 0 10px 0;
+  }
+
+  .snkr_img_contents p{
+    
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 19px;
+    color: #444;
+    text-shadow: 3px 3px 4px rgb(167, 165, 165);
+  }
+  .show_btn{
+      text-decoration: none;
+      color: #444;
+      display: inline-block;
+      background-color: rgb(223, 223, 223);
+      padding:2px 4px ;
+      border-radius: 4px;
+      margin-top:6px;
+      border: 1px solid rgb(134, 134, 134);
+  }
+  .show_btn:hover{
+    background-color: rgb(41, 41, 41);
+    color:rgb(212, 212, 212);
+    transition:all ease .3s;
+  }
+
+  

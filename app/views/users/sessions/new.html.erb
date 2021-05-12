@@ -1,27 +1,24 @@
-<h2>ログイン</h2>
-<p>※登録したメールアドレスとパスワードを入力してください。</p>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
- 
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <h2>パスワード </h2><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <h2>私を覚える</h2>
+<div class="user_login_body">
+  <div class ="user_login_wrapper">
+    <div class = "user_login_container">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <h1>Login</h1>
+        <%= f.email_field :email, placeholder:"email", autofocus: true, autocomplete: "email" %>
+        <%= f.password_field :password, placeholder:"password", autocomplete: "off" %>
+        <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me -%>
+        <% end %>
+        <%= f.submit "Log in" %>
+        <div class = "iyanayatu">
+          <div class = "iyanayatu_item1">
+            <%= link_to "　　SinUp　　", new_user_registration_path, data: {"turbolinks" => false} %>
+          </div>
+          <div class = "iyanayatu_item2">
+            <%= link_to "password forget?", new_user_password_path, data: {"turbolinks" => false} %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

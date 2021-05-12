@@ -1,28 +1,103 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.majimein{
+    padding-top: 10px;
+    background-color: rgb(189, 189, 189);
+    padding-bottom: 30px;
+  
+}
 .main_container{
-    width: 800px;
+    width: 80%;
+   
+
     margin: 0 auto;
-
 }
-
+.right_container{  
+    width: 100%;
+    background-color: rgb(255, 255, 255);  
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 30px;
+}
+.right_content{
+    
+    width: 50%;
+    margin: 0 0 0 auto;
+    border-radius: 10px;
+    text-align: right;
+    
+}
 .right_message{
-    background-color: rgba(103, 221, 103, 0.4);
-    
-    width: 300px;
-    border-radius: 5px;
+    width:100%;
+    margin-right: 10px;
+}
+.righr_item{
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin: 15px 0 15px auto;
+    padding-top: 15px;
+    
 }
 
-.left_message{
-    background-color: rgba(103, 221, 103, 0.4);
-    margin: 15px;
-    
-    width: 300px;
+.message_line{
+    display: inline-block;
+    max-width:90%;
+    background-color: rgb(131, 228, 86);
+    box-shadow: 1px 2px 2px rgb(70, 69, 69);
     border-radius: 5px;
+    padding:2px 8px;
+    text-align: start;
+}
+
+
+.right_image img{
+    border-radius: 50%;
+    border: 1px solid rgb(83, 83, 83);
+
+}
+.left_time{
+   
+    color: rgba(146, 146, 146, 0.6);
+    font-size: 15px;
+}
+.message_btn_container{
+    width: 100%;
+    margin:0 auto;
+    text-align: center;
+    background-color: cadetblue;
+}
+.right_time{
+    color: rgba(146, 146, 146, 0.6);
+    font-size: 15px;
+}
+.left_item{
+   
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
+    padding-top: 15px;
+   
+}
+.left_content{
+    
+    width: 50%;
+    display: flex;
+}
+.left_message{
+    width:100%;
+    margin-left: 10px;
+    border: darkcyan;
+
+}
+.left_message_line{
+    display: inline-block;
+    max-width:90%;
+    background-color: rgb(128, 221, 201);
+    box-shadow: 1px 2px 2px rgb(70, 69, 69);
+    border-radius: 5px;
+    padding:2px 8px;
+
+}
+.left_image img{
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 50%;
 }

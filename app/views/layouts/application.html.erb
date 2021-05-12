@@ -2,16 +2,117 @@
 <html>
   <head>
     
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi&family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stick&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet"><%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <div class="header"></div>
+    <div class="header">
+    <div class = "header_icon_wrapper">
+    <div class = "header_icon_container">
+      <% if user_signed_in?  %>
+          <% if unchecked_notifications.any? %>
+          <div class="snkr_icon_main">
+            <div class="snkr_home">
+              <%= link_to heads_index_path, data: {"turbolinks" => false} do %>
+                <p class="icon_header">Home</p>
+                <i class="fas fa-home" style="font-size: 1.5em;"></i>
+              <% end %>
+            </div>
+            <div class="snkr_itiran modal" id="MODAL">
+            <div class="ccc">
+              <div class="snkr_image_image_item_snkr">
+                <p><%= link_to "スニーカー、一覧", snkrs_path, data: {"turbolinks" => false} %></p>
+                <p><%= link_to "いいね一覧", snkr_likes_path(current_user.liked_snkrs), data: {"turbolinks" => false} %></p>
+                <p><a href="/snkrs/:snkr_id/offers" target="_blank" data: {"turbolinks" => false}>オファー、一覧</a></p>
+              </div>
+            </div>
+            <p>スニーカー</p>
+            <i class="fas fa-shoe-prints" style="font-size: 1.5em;" ></i>
+          </div>
+            <div class="snkr_bell">
+              <%= link_to notifications_path, data: {"turbolinks" => false} do %>
+                <p>通知</p>
+                <div class ="snkr_bell_bell">
+                  <i class="fa fa-circle maru_maru" style="color: gold; font-size: 0.8em;"></i>
+                  <i class ="far fa-bell fa-lg" style="font-size: 1.5em;" ></i>
+                </div>
+              <% end %>
+            </div>
+            <div class="snkr_image_image modal2" id="MODAL">
+            <div class="modal_item">
+              <div class="snkr_image_image_item_item">
+                <p class ="mendokusai"><%= link_to "ログイン", snkrs_path, data: {"turbolinks" => false} %></p>
+                <p><%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false} %></p>
+                  <% if user_signed_in?  %>
+                    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks" => false}%></p>
+                    <p><%= link_to "マイページ", user_path(current_user.id), data: {"turbolinks" => false} %></p>
+                  <% end %>
+              </div>
+            </div>
+              <p>ユーザー</p>
+              <%= image_tag current_user.image_url,class: "user_image edit_image",id:"icon_preview", size: "35x35" if current_user.image? %></br>
+            </div>
+          </div>
+          <% else %>
+          <div class="snkr_icon_main">
+            <div class="snkr_home">
+              <%= link_to(heads_index_path) do %>
+                <p class="icon_header">Home</p>
+                <i class="fas fa-home" style="font-size: 1.5em;"></i>
+              <% end %>
+            </div>
+          <div class="snkr_itiran modal" id="MODAL">
+            <div class="ccc">
+              <div class="snkr_image_image_item_snkr">
+                <p><%= link_to "スニーカー、一覧", snkrs_path, data: {"turbolinks" => false} %></p>
+                <p><%= link_to "いいね一覧", snkr_likes_path(current_user.liked_snkrs, data: {"turbolinks" => false}) %></p>
+                <p><a href="/snkrs/:snkr_id/offers" target="_blank" >オファー、一覧</a></p>
+              </div>
+            </div>
+            <p>スニーカー</p>
+            <i class="fas fa-shoe-prints" style="font-size: 1.5em;" ></i>
+          </div>
+          <div class="snkr_bell">
+              <%= link_to notifications_path, data: {"turbolinks" => false} do %>
+                <p>通知</p>
+                <div class ="snkr_bell_bell">
+                  <i class ="far fa-bell fa-lg" style="font-size: 1.5em;" ></i>
+                </div>
+              <% end %>
+            </div>
+          <div class="snkr_image_image modal2" id="MODAL">
+            <div class="modal_item">
+              <div class="snkr_image_image_item_item">
+                <p class ="mendokusai"><%= link_to "ログイン", snkrs_path, data: {"turbolinks" => false} %></p>
+                <p><%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false} %></p>
+                  <% if user_signed_in?  %>
+                    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks" => false}%></p>
+                    <p><%= link_to "マイページ", user_path(current_user.id), data: {"turbolinks" => false} %></p>
+                  <% end %>
+              </div>
+            </div>
+              <p>ユーザー</p>
+              <%= image_tag current_user.image_url,class: "user_image edit_image",id:"icon_preview", size: "35x35" if current_user.image? %></br>
+            </div>
+          </div>
+          <% end %>
+          
+        </div>
+      <% end %>
+    
+    </div>
+    </div>
+    </div>
     <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
     <label for="openSidebarMenu" class="sidebarIconToggle">
       <div class="spinner diagonal part-1"></div>
@@ -19,25 +120,27 @@
       <div class="spinner diagonal part-2"></div>
     </label>
   <div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-      <li>Heads <span>snkr交換サイト</span></li>
-      <li><a href="/snkrs" target="_blank">スニーカー、一覧</a></li>
-      <li><a href="/snkrs/:snkr_id/likes" target="_blank">いいねしたスニーカー</a></li>
-      <li><a href="/snkrs/:snkr_id/offers" target="_blank">オファー、一覧</a></li>
-      <li><a href="/users/:id" target="_blank">マイページ</a></li>
-      <li><a href="/rooms" target="_blank">DM一覧</a></li>
-      <li><a href="/snkrs/new" target="_blank">スニーカー新規投稿</a></li>
-      <li><a href="/notifications" target="_blank">通知一覧</a></li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="sidebarMenuInner">
+        <li>Heads <span>snkr交換サイト</span></li>
+        <li><%= link_to "スニーカー、一覧", snkrs_path, data: {"turbolinks" => false} %></li>
+        <li><%= link_to "いいねしたスニーカー", snkr_likes_path(current_user.liked_snkrs), data: {"turbolinks" => false} %></li>
+        <li><a href="/snkrs/:snkr_id/offers" target="_blank">オファー、一覧</a></li>
+        <li><%= link_to "マイページ", user_path(current_user.id), data: {"turbolinks" => false} %></li>
+        <li><%= link_to "DM一覧", rooms_path, data: {"turbolinks" => false} %></li>
+        <li><%= link_to "スニーカー新規投稿", new_snkr_path, data: {"turbolinks" => false} %></li>
+        <li><%= link_to "通知一覧", notifications_path, data: {"turbolinks" => false} %></li>
+      </ul>
+    <% end %>
   </div>
-  <div id='center' class="main center">
-      
-
-  </div>
+  <div id='center' class="main center"></div>
   </head>
 
 
-  <body>
+<body>
     <%= yield %>
-  </body>
+</body>
+
+
+ 
 </html>

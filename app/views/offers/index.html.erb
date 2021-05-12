@@ -1,48 +1,71 @@
 <%= stylesheet_link_tag "offer_index", :media => "all" %>
-<h2>オファー、一覧</h2>
-  <%= link_to "スニーカー、一覧に戻る", snkrs_path %>
-  <h3>自分のオファー</h3>
-  <div class="offers-container">
-      <% @offers1.each do |t| %>  
-        <div class="offers">
-          <div class="offer-image">      
-            <%= image_tag t.image_url, size: "250x200" if t.image? %>      
-          </div>
-          <%= t.user.name %>
-          <br>
-          <%= t.name %>
-          <br>
-          <%= t.size %>
-          <%= t.score %>
-          <%= t.retailer %>
-          <%= t.usage %>
-          <br>
-          <%= link_to "詳細へ", edit_snkr_offer_path(t.snkr_id, t.id)  %>
-            
-        </div>
-      <% end %>
-    </div>
-
-  <h3>相手からのオファー</h3>
-   <div class="offers-container">
-      <% @offers2.each do |t| %>  
-        <% if t.consent != 'いいえ' %>
-          <div class="offers">
-            <div class="offer-image">      
-              <%= image_tag t.image_url, size: "250x200" if t.image? %>      
+<div class = "offer_body">
+<div class = "offer_main">
+  <div class = "offer_main_container">
+      <div class = "snkr_offer_title">
+        <h1>Offer</h1>
+      </div>
+      <div class = "snkr_offer_title_sabu">
+        <h2>自分のOffer</h2>
+      </div>
+      <div class="offer_index_contents">
+        <div class="snkrs_main">
+            <div class="snkrs">
+              <div class="snkrs_offer_container">
+                <% @offers1.each do |t| %> 
+                    <div class="snkr_img_wrapper">
+                      <div class = "snkr_img_container">
+                        <%= image_tag t.images[0].image.to_s, size: "250x200" if t.images[0].image? %> 
+                      </div>
+                      <div class = "snkr_img_contents">
+                        <div class = "snkr_imag_item">
+                          <p>Name：
+                          <%= t.name %>
+                          </p>
+                          <p>Size：
+                          <%= t.size %>
+                          </p>
+                          <%= link_to "詳細へ", edit_snkr_offer_path(t.snkr_id, t.id), data: {"turbolinks" => false},class:"show_btn"  %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+              </div>
             </div>
-            <%= t.user.name %>
-            <br>
-            <%= t.name %>
-            <br>
-            <%= t.size %>
-            <%= t.score %>
-            <%= t.retailer %>
-            <%= t.usage %>
-            <br>
-            <%= link_to "詳細へ", edit_snkr_offer_path(t.snkr_id, t.id)  %>              
-          </div>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
+    <div class = "snkr_offer_title_sabu2">
+      <h2>相手からのOffer</h2>
     </div>
+    <div class="offer_index_contents">
+      <div class="snkrs_main">
+        <div class="snkrs">
+          <div class="snkrs_offer_container">
+            <% @offers2.each do |t| %>  
+              <% if t.consent != 'いいえ' %>
+                <div class="snkr_img_wrapper">
+                  <div class = "snkr_img_container">
+                    <%= image_tag t.images[0].image.to_s, size: "250x200" if t.images[0].image? %> 
+                  </div>
+                  <div class = "snkr_img_contents">
+                    <div class = "snkr_imag_item">
+                      <p>Name：
+                      <%= t.name %>
+                      </p>
+                      <p>Size：
+                      <%= t.size %>
+                      </p>
+                      <%= link_to "詳細へ", edit_snkr_offer_path(t.snkr_id, t.id), data: {"turbolinks" => false},class:"show_btn"  %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+    

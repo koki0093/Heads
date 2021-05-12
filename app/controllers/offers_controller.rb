@@ -8,15 +8,21 @@ class OffersController < ApplicationController
 
     def new
         @offers = Offer.new
-        @snkrs = Snkr.find(params[:snkr_id])       
+        @snkrs = Snkr.find(params[:snkr_id]) 
+        @offers.images.build      
     end
 
     def create
-        offer = Offer.new(offers_params)
+        @offer = Offer.new(offers_params)
 
-        offer.snkr_id = Snkr.find(params[:snkr_id]).id
-        offer.user_id = current_user.id
-       if offer.save!
+        @offer.snkr_id = Snkr.find(params[:snkr_id]).id
+        @offer.user_id = current_user.id
+       if @offer.save!
+            if params[:images].present?
+                params[:images]["image"].each do |img|
+                    @images = @offer.images.create(:image => img, :offer_id => @offer.id)
+                end
+            end
            redirect_to :action => "index"
        else
            redirect_to :action => "new"
@@ -37,6 +43,8 @@ class OffersController < ApplicationController
         @offers = Offer.find(params[:id])
         @snkrs = Snkr.find(params[:snkr_id])
         @snkrsUser = User.find(@snkrs.user_id)
+        @snkr_image = Image.where(snkr_id:@snkrs.id)
+        @offer_image = Image.where(offer_id:@offers.id)
 
         @offersUser = User.find(@offers.user_id)
         @offersUserEntry=Entry.where(user_id: @offersUser.id)
@@ -77,7 +85,7 @@ class OffersController < ApplicationController
 
     private
         def offers_params
-            params.require(:offer).permit(:name, :score, :retailer, :usage, :size, :image, :consent)
+            params.require(:offer).permit(:name, :score, :retailer, :usage, :size, :image, :consent, images_attributes: [:image])
           
         end
 

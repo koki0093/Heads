@@ -17,25 +17,99 @@
  html, body {
      overflow-x: hidden;
      height: 100%;
+    
+ }
+ *{
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
  }
  body {
-     background: #fff;
-     padding: 0;
-     margin: 0;
-     font-family: 'Varela Round', sans-serif;
+    position: relative;
+    z-index:-5;
+    
  }
  .header {
-     display: block;
+     display: flex;
      margin: 0 auto;
      width: 100%;
      max-width: 100%;
      box-shadow: none;
-     background-color: #000000;
+     background-color: rgba(0, 0, 0,1);
      position: fixed;
      height: 60px!important;
-     overflow: hidden;
+     
      z-index: 10;
+     
+     
  }
+
+ .notification_container{
+     margin: 0 auto;
+     width:100%;
+     position: relative;
+ }
+ .header_icon_wrapper{
+     width: 100%;
+     height: 100%;
+     background-color: rgb(0, 0, 0);
+    
+    
+ }
+ .header_icon_container{
+     width: 40%;
+     height: 100%;
+     float: right;
+     
+     background-color: rgb(0, 0, 0);
+ }
+ .snkr_icon_main{
+     display: flex;
+     justify-content: space-around;
+     
+     
+ }
+ .snkr_home a{
+     display: flex;
+     margin-top: 17px;
+     text-decoration: none;
+     color: white;
+ }
+ .snkr_itiran{
+     display: flex;
+     margin-top: 17px;
+     color: white;
+ }
+ .snkr_bell a{
+     display: flex;
+     margin-top: 17px;
+     text-decoration: none;
+     color: white;
+ }
+ .snkr_image_image{
+     display: flex;
+     margin-top: 10px;
+     margin-right: 30px;
+ }
+ .snkr_image_image img{
+     border-radius: 50%;
+     border: 2px solid rgb(141, 141, 141);
+     
+ }
+ .snkr_image_image p{
+    font-family: 'Varela Round', sans-serif;
+    font-size:18px;
+    color: white;
+    padding-top: 6px;
+
+}
+ .icon_header{
+     margin-right: 12px;
+     
+ }
+ 
+
+
  .main {
      margin: 0 auto;
      display: block;
@@ -62,7 +136,7 @@
      margin-top: 60px;
      transform: translateX(-250px);
      transition: transform 250ms ease-in-out;
-     background: linear-gradient(180deg, #000000 0%, #3F5EFB 100%);
+     background: linear-gradient(180deg, #000000 0%, #969494 100%);
  }
  .sidebarMenuInner{
      margin:0;
@@ -111,6 +185,7 @@
      left: 15px;
      height: 22px;
      width: 22px;
+     position: fixed;
  }
  .spinner {
      transition: all 0.3s;
@@ -157,7 +232,102 @@
      transform: rotate(-135deg);
      margin-top: -9px;
  }
- 
- 
- 
- 
+
+.modal{
+    position:relative;
+    z-index:100;
+    cursor: pointer;
+}
+.modal2{
+    position:relative;
+    z-index:100;
+    cursor: pointer;
+}
+.modal_item{
+    position:absolute;
+    top:36px;
+    right:-2px;
+    width:160px;
+    height: 190px;
+    background-color: rgb(88, 88, 88);
+    border-radius: 10px;
+    display: none;
+}
+.ccc{
+    position:absolute;
+    top:36px;
+    right:-2px;
+    width:150px;
+    height: 120px;
+    background-color: rgb(88, 88, 88);
+    border-radius: 10px;
+    display: none;
+}
+.snkr_image_image_item_item{
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.mendokusai{
+    border-radius: 10px;
+}
+.snkr_image_image_item_item p{
+    margin: 10px;
+    border-radius: 10px;
+}
+.snkr_image_image_item_item p:hover{
+    background-color: rgb(175, 175, 175);
+}
+.snkr_image_image_item_item a{
+    font-family: 'Varela Round', sans-serif;
+    font-size:18px;
+    color: white;
+  
+    text-decoration: none;
+    
+}
+.snkr_image_image_item_snkr{
+    text-align: center;
+    border-radius: 10px;
+}
+.snkr_image_image_item_snkr p{
+    border-radius: 10px;
+    margin: 10px;
+}
+.snkr_image_image_item_snkr p:hover{
+    background-color: rgb(175, 175, 175);
+}
+.snkr_image_image_item_snkr a{
+    font-family: 'Varela Round', sans-serif;
+    font-size:15px;
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+    
+}
+.snkr_bell_bell{
+    position: relative;
+}
+.maru_maru{
+    position: absolute;
+    padding-left: 1rem;
+    padding-top: 0rem;
+    
+    
+}
+footer{
+
+    color: white;
+    height: 52px;
+    background-color: #000;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+   
+}
+footer p{
+    font-family: 'Shadows Into Light', cursive;
+    font-size:30px;
+    text-shadow: 2px 2px 2px #000;
+}

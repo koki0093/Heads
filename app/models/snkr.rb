@@ -7,8 +7,10 @@ class Snkr < ApplicationRecord
 
     has_many :notifications, dependent: :destroy
 
-    mount_uploader :image, ImageUploader
+    has_many :images, dependent: :destroy
+    accepts_nested_attributes_for :images, allow_destroy: true
 
+    
     def create_notification_like!(current_user)
       # すでに「いいね」されているか検索
         temp = Notification.where(["visitor_id = ? and visited_id = ? and snkr_id = ? and action = ? ", current_user.id, user_id, id, 'like'])

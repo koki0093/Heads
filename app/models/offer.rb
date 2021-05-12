@@ -2,8 +2,10 @@ class Offer < ApplicationRecord
     belongs_to :user
     belongs_to :snkr
     has_many :notifications, dependent: :destroy
+    has_many :images, dependent: :destroy
+    accepts_nested_attributes_for :images, allow_destroy: true
 
-    mount_uploader :image, ImageUploader
+    
 
     def create_notification_update!(current_user)
       temp = Notification.where(["visitor_id = ? and visited_id = ? and snkr_id = ? and offer_id = ? and action = ? ", current_user.id, user_id, snkr_id, id, 'update'])

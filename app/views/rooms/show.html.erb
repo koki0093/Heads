@@ -1,5 +1,5 @@
 <h1>DM</h1>
-<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+
   <div class="snkr">
     <div class="snkr-container">
       <p>出品者名
@@ -8,9 +8,9 @@
       <p>出品者スニーカー名
       <%= @snkrs.name %>
       </p>
-      <p>
-      <%= image_tag @snkrs.image_url, size: "250x200" %>
-      </p>
+      <div class = "snkr_img_container">
+        <%= image_tag @snkrs.images[0].image.to_s, size: "250x200" if @snkrs.images[0].image? %> 
+      </div>
       <p>サイズ
       <%= @snkrs.size %>
       </p>
@@ -31,7 +31,9 @@
       <p>オファースニーカー名
       <%= @offers.name %>
       </p>
-      <%= image_tag @offers.image_url, size: "250x200" %>
+      <div class = "snkr_img_container">
+        <%= image_tag @offers.images[0].image.to_s, size: "250x200" if @offers.images[0].image? %> 
+      </div>
       <p>サイズ
       <%= @offers.size %>
       </p>
@@ -53,32 +55,66 @@
 <% end %>
 
 <hr>
-<% if @messages.present? %>
-  <div class = main_container>
-    <% @messages.each do |m| %>
-        <% if m.user_id == current_user.id %>
-        <div class = right_container>
-          <div class = right_message>
-            <%= m.content %>
-          </div>
-        <div>
-        <% elsif m.user_id != current_user.id %>
-          <div class = left_container>
-            <div class = left_message>
-              <%= m.content %>
-            </div>
-          </div>
-        <% end %>
-    <% end %>
-  </div>
-<% else %>
-  <h3 class="text-center">メッセージはまだありません</h3>
-<% end %>
+<div class ="majimein">
+  <div class = "main_container">
+    <div class = "right_container">
+      <% if @messages.present? %>
+        <% @messages.each do |m| %>
+            <% if m.user_id == current_user.id %>
+              <div class="right_content">
+                <div class="righr_item">
+                  <div class = "right_message">
 
-<%= form_with(model: [@snkrs, @offers, @message], local: true) do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
-  <%= f.hidden_field :room_id, :value => @room.id %>
-  <br>
-  <%= f.submit "投稿する" %>
-<% end %>
+                    <div class="message_line">
+                      <%= m.content %>
+                    </div>
+
+                    <div class = "right_time">
+                      <%= m.created_at.to_s(:datetime_jp) %>
+                    </div>
+
+                  </div>
+                  
+                  <div class = "right_image">
+                    <%= image_tag m.user.image_url, size: "50x50" if m.user.image? %>
+                  </div>
+               </div>
+              </div>
+          <% elsif m.user_id != current_user.id %>
+            <div class="left_content">
+              <div class="left_item">
+                <div class = "left_image">
+                    <%= image_tag m.user.image_url, size: "50x50" if m.user.image? %>
+                </div>
+                <div class = "left_message">
+                  <div class="left_message_line">
+                    <%= m.content %>
+                  </div>
+
+                  <div class = "left_time">
+                    <%= m.created_at.to_s(:datetime_jp) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          <% end %>
+      <% end %>
+    <% else %>
+      <h3 class="text-center">メッセージはまだありません</h3>
+    <% end %>
+    <div>
+  </div>
+
+</div>
+<div class="message_btn_container">
+    <div class="message_btn">
+      <%= form_with(model: [@snkrs, @offers, @message], local: true) do |f| %>
+        <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <br>
+        <%= f.submit "投稿する" %>
+      <% end %>
+    </div>
+</div>
 
