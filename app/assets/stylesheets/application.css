@@ -17,6 +17,7 @@
  html, body {
      overflow-x: hidden;
      height: 100%;
+<<<<<<< HEAD
     
  }
  *{
@@ -31,10 +32,22 @@
  }
  .header {
      display: flex;
+=======
+ }
+ body {
+     background: #fff;
+     padding: 0;
+     margin: 0;
+     font-family: 'Varela Round', sans-serif;
+ }
+ .header {
+     display: block;
+>>>>>>> origin/master
      margin: 0 auto;
      width: 100%;
      max-width: 100%;
      box-shadow: none;
+<<<<<<< HEAD
      background-color: rgba(0, 0, 0,1);
      position: fixed;
      height: 60px!important;
@@ -110,6 +123,14 @@
  
 
 
+=======
+     background-color: #000000;
+     position: fixed;
+     height: 60px!important;
+     overflow: hidden;
+     z-index: 10;
+ }
+>>>>>>> origin/master
  .main {
      margin: 0 auto;
      display: block;
@@ -131,12 +152,20 @@
  #sidebarMenu {
      height: 100%;
      position: fixed;
+<<<<<<< HEAD
+=======
+     z-index:100;
+>>>>>>> origin/master
      left: 0;
      width: 250px;
      margin-top: 60px;
      transform: translateX(-250px);
      transition: transform 250ms ease-in-out;
+<<<<<<< HEAD
      background: linear-gradient(180deg, #000000 0%, #969494 100%);
+=======
+     background: linear-gradient(180deg, #000000 0%, #3F5EFB 100%);
+>>>>>>> origin/master
  }
  .sidebarMenuInner{
      margin:0;
@@ -185,7 +214,10 @@
      left: 15px;
      height: 22px;
      width: 22px;
+<<<<<<< HEAD
      position: fixed;
+=======
+>>>>>>> origin/master
  }
  .spinner {
      transition: all 0.3s;
@@ -232,6 +264,7 @@
      transform: rotate(-135deg);
      margin-top: -9px;
  }
+<<<<<<< HEAD
 
 .modal{
     position:relative;
@@ -331,3 +364,9 @@ footer p{
     font-size:30px;
     text-shadow: 2px 2px 2px #000;
 }
+=======
+ 
+ 
+ 
+ 
+>>>>>>> origin/master

@@ -72,7 +72,11 @@ class OffersController < ApplicationController
         @snkrs = Snkr.find(params[:snkr_id])
         @offers = Offer.find(params[:id])
         if @offers.update(offers_params)
+<<<<<<< HEAD
             @offers.create_notification_update!(current_user)
+=======
+            @offers.create_notification_by(current_user)
+>>>>>>> origin/master
             if @offers.consent == 'はい'
                 redirect_to :action => "edit", :snkr_id => @snkrs.id, :id => @offers.id
             else @offers.consent == 'いいえ'

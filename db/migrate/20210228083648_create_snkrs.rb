@@ -6,11 +6,14 @@ class CreateSnkrs < ActiveRecord::Migration[6.1]
       t.string :retailer
       t.integer :usage
       t.float :size
+<<<<<<< HEAD
       t.string :image1
       t.string :image2
       t.string :image3
       t.string :image4
       t.string :image5
+=======
+>>>>>>> origin/master
 
       t.timestamps
     end

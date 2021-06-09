@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  has_many :notifications, dependent: :destroy
     before_action :authenticate_user!, :only => [:create]
 
 

@@ -1,4 +1,5 @@
 <% if current_user.id == @user.id %>
+<<<<<<< HEAD
   <div class= "maimim">
   <div class="notification_body_main">
     <div class="notification_body">
@@ -21,6 +22,19 @@
     </div>
   </div>
 <div>
+=======
+  <h3>チャット一覧</h3>
+  <% @rooms.each do |r| %>
+    <% r.users.each do |u| %>
+     <% if u.id == current_user.id %>
+     <% else %>
+        <p><%= link_to "#{u.name}さんとのチャット", snkr_offer_room_path(r.snkr_id, r.offer_id, r.id)  %></p>
+        
+       
+     <% end %>
+    <% end %> 
+  <% end %>
+>>>>>>> origin/master
 <% else %>
 
 <% end %>

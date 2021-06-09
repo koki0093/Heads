@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -46,3 +47,63 @@
     </div>
   </div>
 </div>
+=======
+
+<%= stylesheet_link_tag "snkr_new", :media => "all" %>
+<div class = main>
+  <section class = main__block >
+    <%= form_with model:@snkrs, local:true do |f| %>
+      <h2 class = sell__block__head >
+        スニーカーの情報を入力
+      </h2>
+      <div class = sell__block__form >
+        <div class = sell__block__form__upload >
+          <h3 class= sell__block__form__upload__head >
+            出品画像
+            <span class=require> 
+              必須
+            </span>
+          </h3>
+          <p> 最大5枚までアップロードできます </p>
+          <div class = snkr__drop__box__container >
+            <div class = prev-content></div>
+            <div class = label-content>
+              <label for = "snkr_images_attributes_0_image", class = "label-box", id = "label-box--0"} >
+                <pre class = label-box__text-visible >クリックしてファイルをアップロード </pre>
+              </label>
+            </div>
+            <div class = hidden-content>
+              <%= f.fields_for :images do |i| %>
+                <%= i.file_field :image, class: "hidden-field"%>
+                <input class = "hidden-field", type = "file", name = "snkr[images_attributes][1][image]", id = "snkr_images_attributes_1_image" />
+                <input class = "hidden-field", type = "file", name = "snkr[images_attributes][2][image]", id = "snkr_images_attributes_2_image" />
+                <input class = "hidden-field", type = "file", name = "snkr[images_attributes][3][image]", id = "snkr_images_attributes_3_image" />
+                <input class = "hidden-field", type = "file", name = "snkr[images_attributes][4][image]", id = "snkr_images_attributes_4_image" />
+              <% end %>
+            </div>
+        </div>
+      </div>
+        <div class = sell__block__form__name>
+          <div class = form-group__name>
+            <label>
+              商品名
+              <span class = require> 
+                必須
+              </span>
+            </label>
+            <div>
+              <%= f.text_field :name, placeholder:"商品名（必須 40文字まで)",class: "form__group__name", :size => "80*70" %>
+            </div>
+          </div>
+        </div>
+
+        <div class = sell__block__form__btn>
+          <div>
+            <%= f.submit "出品する",class: "btn-default__btn-red" %>
+          </div>
+        </div>
+    <% end %>
+  </section>
+</div>
+<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+>>>>>>> origin/master

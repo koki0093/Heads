@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_05_161243) do
+=======
+ActiveRecord::Schema.define(version: 2021_04_24_163318) do
+>>>>>>> origin/master
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -52,12 +56,22 @@ ActiveRecord::Schema.define(version: 2021_05_05_161243) do
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
     t.integer "snkr_id"
+<<<<<<< HEAD
     t.integer "offer_id"
     t.integer "room_id"
+=======
+    t.integer "message_id"
+    t.integer "offer_id"
+    t.string "offer_consent"
+>>>>>>> origin/master
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
+    t.index "\"massage_id\"", name: "index_notifications_on_massage_id"
+>>>>>>> origin/master
     t.index ["snkr_id"], name: "index_notifications_on_snkr_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
@@ -70,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_161243) do
     t.string "retailer"
     t.integer "usage"
     t.float "size"
-    t.string "image"
     t.integer "snkr_id"
     t.string "consent"
     t.datetime "created_at", precision: 6, null: false
@@ -91,11 +104,14 @@ ActiveRecord::Schema.define(version: 2021_05_05_161243) do
     t.string "retailer"
     t.integer "usage"
     t.float "size"
+<<<<<<< HEAD
     t.string "image1"
     t.string "image2"
     t.string "image3"
     t.string "image4"
     t.string "image5"
+=======
+>>>>>>> origin/master
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

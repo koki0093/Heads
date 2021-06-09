@@ -1,6 +1,7 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 <div class = col-md-6.mx-auto >
+<<<<<<< HEAD
     <div class="notification_main_item_wrapper">
         <div class = form-inline >
             <h5>
@@ -37,6 +38,34 @@
       
 
 <div class = "small.text-muted.text-right unko" >
+=======
+    <div class = form-inline >
+        <h3>
+        <%= visitor.name %>
+        <%= 'さんが' %>
+        </h3>
+
+        <% case notification.action %>
+        <% when 'like' then %>
+            <%= link_to 'あなたの投稿', notification.snkr, style: "font-weight: bold;" %>
+            <%= "にいいねしました" %>
+        <% end %>
+        <% when 'update' then %>
+            <% if notification.offer.consent == 'はい' %>  
+                <%= link_to 'あなたのオファー', notification.offer, style: "font-weight: bold;" %>
+                <%= "が承諾されました" %>
+            <% elsif notification.offer.consent == 'いいえ' %> 
+                <%= link_to 'あなたのオファー', notification.offer, style: "font-weight: bold;" %>
+                <%= "がキャンセルされました" %>
+            <% else %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+      
+
+<div class = small.text-muted.text-right >
+>>>>>>> origin/master
     <%= time_ago_in_words(notification.created_at).upcase %>
   <hr>
 </div>

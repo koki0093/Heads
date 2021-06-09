@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class= "maimim">
 <div class="notification_body_main">
   <div class="notification_body">
@@ -19,3 +20,16 @@
   </div>
 </div>
 <div>
+=======
+<%= link_to "スニーカー、一覧に戻る", snkrs_path %>
+<div>
+  <h4 class="sub-title">通知</h4>
+  <% if @notifications.exists? %>
+    <div class="users-index">
+      <%= render @notifications  %>
+    </div>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>
+>>>>>>> origin/master
