@@ -1,11 +1,10 @@
 class RoomsController < ApplicationController
     before_action :authenticate_user!
 
-    def index
-      @user = User.find(current_user.id)
-      @rooms = @user.rooms
-      
-    end
+  def index
+    @user = User.find(current_user.id)
+    @rooms = @user.rooms
+  end
 
   def create
     @room = Room.create(snkr_id: params[:snkr_id], offer_id: params[:offer_id])
